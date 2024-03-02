@@ -1,0 +1,30 @@
+/* Small classWrite a method called isPalindrome with one int parameter called number. The method needs to return a boolean. It should return 
+true if the number is a palindrome number otherwise it should return false. Check the tips below for more info about palindromes.Example Input/Output
+Tip: What is a Palindrome number?  A palindrome number is a number which when reversed is equal to the original number. For example: 121, 12321, 1001 etc.
+Tip: Logic to check a palindrome number. Find the the reverse of the given number. Store it in some variable say reverse. Compare the number with reverse. 
+If both are the the same then the number is a palindrome otherwise it is not. */
+
+public class NumberPalindrome {
+    public static boolean isPalindrome(int number){
+
+        int reverse = 0;
+        
+        if(number < 0){
+            number *= -1;
+        }
+        
+        int originalValue = number;
+
+        while(number != 0){
+
+            int lastDigit = number % 10;
+            reverse += lastDigit;
+
+            number /= 10;
+            reverse *= 10;
+        }
+        
+        reverse /= 10;
+        return (reverse == originalValue);
+    }
+}
